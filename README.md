@@ -10,7 +10,7 @@
 4. Download and extract Pi Control archive
 
   ```bash
- $ wget https://github.com/jetechfiles/picontrol/raw/master/picontrol.tgz
+ $ wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
  $ tar -xzf picontrol.tgz
  ```
 5. Run installer
