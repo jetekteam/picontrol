@@ -16,7 +16,8 @@
 5. Run installer
 
   ```bash
- $ sudo sh picontrol/setup.sh
+ $ cd picontrol
+ $ sudo sh ./setup.sh
  ``` 
 6. When prompted to reboot type “y” and hit enter.
 7. After reboot you may now access Pi Control web app from any browser connected to same local network by typing in the IP address of the Pi.
