@@ -8,7 +8,7 @@
 
 ### Pi Control Kit without NFC contents
 
-![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/picontrol_w_nfc.png)
+![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/picontrol_wo_nfc.png)
 
 These kits shown use the Style B USB Port which may require the tweaked bottom shell design.
 
@@ -47,5 +47,30 @@ These kits shown use the Style B USB Port which may require the tweaked bottom s
    
    ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/positioning.png)
    ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/positioning_2.png)
+   
+### NFC Installs - Cart Tray 
+
+  8. If using the embedded NFC cart tray (highly recommended for best fitmet of kit) insert the NFC through the bottom of the tray.
+    
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install.png)
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install_2.png)
+   
+  9. Snap conver into place.
+    
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install_3.png)
+   
+  10. Insert cart tray into top shell. It should flex enough to get one side in and then the other.
+    
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install_4.png)
+   
+  10. Careful routing of the NFC harness between the two usb ports on the Pi as shown will result in the best fitment and pivot operation.
+    
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install_5.png)
+   
+---------------------------------------------------------------------------------------
+    
+   Suggested placemnt of the NFC if you are not using the embedded NFC cart try. It is a tight fit in the case. Suggestion to try gluing this in lightly and testing fitment before commiting to  placement. Test "barbantia" latching operation.
+   
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_tray_reg.png)
    
     
