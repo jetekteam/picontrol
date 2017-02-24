@@ -65,7 +65,7 @@ These kits shown use the Style B USB Port which may require the tweaked bottom s
    
   10. Careful routing of the NFC harness between the two usb ports on the Pi as shown will result in the best fitment and pivot operation.
     
-   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_install_5.png)
+   ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_intall_5.png)
    
 ---------------------------------------------------------------------------------------
     
