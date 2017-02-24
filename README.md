@@ -10,14 +10,14 @@
 4. Download and extract Pi Control archive
 
   ```bash
- $ wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
- $ tar -xzf picontrol.tgz
+ wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
+ tar -xzf picontrol.tgz
  ```
 5. Run installer
 
   ```bash
- $ cd picontrol
- $ sudo sh ./setup.sh
+ cd picontrol
+ sudo sh ./setup.sh
  ``` 
 6. When prompted to reboot type “y” and hit enter.
 7. After reboot you may now access Pi Control web app from any browser connected to same local network by typing in the IP address of the Pi.
