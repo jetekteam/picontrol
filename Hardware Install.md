@@ -69,7 +69,7 @@ These kits shown use the Style B USB Port which may require the tweaked bottom s
    
 ---------------------------------------------------------------------------------------
     
-   Suggested placemnt of the NFC if you are not using the embedded NFC cart try. It is a tight fit in the case. Suggestion to try gluing this in lightly and testing fitment before commiting to  placement. Test "barbantia" latching operation.
+   Suggested placement of the NFC if you are not using the embedded NFC cart try. It is a tight fit in the case. Suggestion to try gluing this in lightly and testing fitment before commiting to  placement. Test "barbantia" latching operation.
    
    ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_tray_reg.png)
    
