@@ -3,7 +3,7 @@
 ## Hardware Installation
 
 -----------------
-## Warning!!! Installing the Pi Control Board on the incorrect pins on the Pi can damage your Pi!**
+## Warning!!! Installing the Pi Control Board on the incorrect pins on the Pi can damage your Pi!
 -----------------
 
 ### Pi Control Kit with NFC contents
