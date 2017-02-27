@@ -4,8 +4,7 @@
 (Requires RetroPie, please see instructions to install RetroPie at https://retropie.org.uk)
 
 -----------------
-## Warning!!!
-**Installing the Pi Control Board on the incorrect pins on the Pi can damage your Pi!**
+## Warning!!! Installing the Pi Control Board on the incorrect pins on the Pi can damage your Pi!
 -----------------
 
 1. Configure keyboard if not already done
