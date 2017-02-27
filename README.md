@@ -26,6 +26,3 @@
   * Example: 192.168.1.25
   * Default Username: picontrol
   * Default Password: password
-  
- ***NOTE
- This has only been tested with retropie verions 4.1. We cannot guarantee compatibility with any later versions.
