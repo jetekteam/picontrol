@@ -2,6 +2,11 @@
 
 ## Hardware Installation
 
+-----------------
+## Warning!!!
+**Installing the Pi Control Board on the incorrect pins on the Pi can damage your Pi!**
+-----------------
+
 ### Pi Control Kit with NFC contents
 
 ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/picontrol_w_nfc.png)
