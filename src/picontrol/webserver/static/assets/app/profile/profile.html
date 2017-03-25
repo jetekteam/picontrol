@@ -1,0 +1,71 @@
+﻿<div class="col-md-12">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body app-heading">
+          <div style="opacity: .4; border-radius: 50%; width:80px; height:80px; text-align:center; padding-top:15px; margin-right:10px; background: rgba(128, 128, 128,.25);"><i class="fa fa-user" style="font-size:45px;"></i></div>
+          <!--<img class="profile-img" src="../static/assets/images/profile.png">-->
+          <div class="app-title">
+            <div class="title"><span class="highlight">Pi Control Admin</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">User</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" placeholder="Username" ng-model="profileCtrl.user.username">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" class="form-control" placeholder="Old" ng-model="profileCtrl.user.password">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="profileCtrl.saveUser()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">Theme</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="radio"><input type="radio" id="radioGreen" name="radioGreen" ng-model="profileCtrl.theme" value="default" ng-change="profileCtrl.setTheme('default')" /><label for="radioGreen">Green (Default)</label></div>
+                        <div class="radio"><input type="radio" id="radioBlue" name="radioBlue" ng-model="profileCtrl.theme" value="blue" ng-change="profileCtrl.setTheme('blue')" /><label for="radioBlue">Blue</label></div>
+                        <div class="radio"><input type="radio" id="radioBlueSky" name="radioBlueSky" ng-model="profileCtrl.theme" value="blue-sky" ng-change="profileCtrl.setTheme('blue-sky')" /><label for="radioBlueSky">Sky Blue</label></div>
+                        <div class="radio"><input type="radio" id="radioRed" name="radioRed" ng-model="profileCtrl.theme" value="red" ng-change="profileCtrl.setTheme('red')" /><label for="radioRed">Red</label></div>
+                        <div class="radio"><input type="radio" id="radioYellow" name="radioYellow" ng-model="profileCtrl.theme" value="yellow" ng-change="profileCtrl.setTheme('yellow')" /><label for="radioYellow">Yellow</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="profileCtrl.saveTheme()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+  </div>
+</div>

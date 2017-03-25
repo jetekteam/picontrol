@@ -1,0 +1,118 @@
+.app.app-blue aside.app-sidebar {
+  background-color: #FFF; }
+  .app.app-blue aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
+    background-color: #095077; }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon {
+    background-color: rgba(141, 146, 147, 0.15);
+    color: rgba(141, 146, 147, 0.45); }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .title {
+    color: #8d9293; }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+    background-color: rgba(9, 80, 119, 0.25);
+    color: rgba(9, 80, 119, 0.75); }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
+    color: #095077; }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown > .dropdown-menu > ul > li.section {
+    color: #095077; }
+  .app.app-blue aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown.open > a:after {
+    border-right-color: #FFF; }
+  .app.app-blue aside.app-sidebar .sidebar-footer {
+    border-top-color: rgba(0, 0, 0, 0.1);
+    background-color: #FFF; }
+    .app.app-blue aside.app-sidebar .sidebar-footer ul.menu > li.dropdown .dropdown-menu {
+      border-bottom-color: #095077; }
+
+.app.app-blue .navbar .navbar-header .navbar-brand .highlight, .app.app-blue .navbar .navbar-mobile .navbar-brand .highlight {
+  background-color: #095077; }
+
+.app.app-blue .ct-series-a .ct-bar, .app.app-blue .ct-series-a .ct-line, .app.app-blue .ct-series-a .ct-point {
+  stroke: #095077; }
+
+.app.app-blue .ct-series-a .ct-area {
+  fill: #095077; }
+
+.app.app-blue .ct-series-a .ct-slice-pie {
+  fill: #095077;
+  stroke: #FFF;
+  stroke-width: 3; }
+
+.app.app-blue .ct-series-a .ct-slice-donut {
+  stroke: #095077; }
+
+.app.app-blue .ct-series-b .ct-bar, .app.app-blue .ct-series-b .ct-line, .app.app-blue .ct-series-b .ct-point {
+  stroke: #39c3da; }
+
+.app.app-blue .ct-series-b .ct-area {
+  fill: #39c3da; }
+
+.app.app-blue .ct-series-b .ct-slice-pie {
+  fill: #39c3da;
+  stroke: #FFF;
+  stroke-width: 3; }
+
+.app.app-blue .ct-series-b .ct-slice-donut {
+  stroke: #39c3da; }
+
+.app.app-blue .ct-series-a:after {
+  background-color: #095077; }
+
+.app.app-blue .ct-series-b:after {
+  background-color: #39c3da; }
+
+.app.app-blue .card-banner .ct-series-a .ct-bar, .app.app-blue .card-banner .ct-series-a .ct-line, .app.app-blue .card-banner .ct-series-a .ct-point {
+  stroke: #FFF; }
+
+.app.app-blue .card-banner .ct-series-a .ct-area {
+  fill: #FFF; }
+
+.app.app-blue .card-banner .ct-series-a .ct-slice-pie {
+  fill: white;
+  stroke: #FFF;
+  stroke-width: 3; }
+
+.app.app-blue .card-banner .ct-series-a .ct-slice-donut {
+  stroke: #FFF; }
+
+.app.app-blue .card.card-tab .card-header > ul > li.active a, .app.app-blue .card.card-tab ul.nav-tabs > li.active a {
+  color: #095077; }
+
+.app.app-blue .card.card-tab > .ng-isolate-scope > .nav-tabs > li.active a {
+  color: #095077; }
+
+.app.app-blue .app-login {
+  background: #095077; }
+
+.app.app-blue .app-login .app-body .app-block .app-right-section {
+  background-color: #095077; }
+
+.app.app-blue .app-login .app-body .app-block .app-right-section .app-brand .highlight {
+  color: #095077; }
+
+.app.app-blue .app-login .app-body .app-block .app-right-section .app-info ul.list li .icon {
+  color: #095077; }
+
+.app.app-blue .app-login .app-body .app-block .app-form .form-header .highlight {
+   color: #095077; }
+
+.app.app-blue .app-login.__loading:after {
+  background-color: #095077 }
+
+.app.app-blue .info-bubble-first {
+  color: #095077; }
+
+.app.app-blue .info-bubble-second {
+  color: #39c3da; }
+
+.app.app-blue .radio input:checked + label::after {
+  background-color: #095077; }
+
+.app.app-blue .checkbox label:after, .app.app-blue .radio label:after {
+  color: #095077; }
+
+.app.app-blue .checkbox input:checked + label::after, .app.app-blue .radio input:checked + label::after {
+  background-color: #095077;
+  border: 1px solid #095077;
+  border-bottom: 2px solid #095077; }
+
+.app.app-blue .app-container .app-heading .app-title .title .highlight {
+  color: #095077; }

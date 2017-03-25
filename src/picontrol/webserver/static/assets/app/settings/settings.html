@@ -1,0 +1,160 @@
+﻿<div class="col-md-12">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">Fan Configuration</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">On Threshold - Celsius</label>
+                        </div>
+                    </div>
+                    <ionslider on-finish='settingsCtrl.updateThresholdOn' min="0" max="100" from="settingsCtrl.fanConfig.thresholdOn"></ionslider>
+                    <!--<ion-range-slider min="0" max="100" to="100" from="settingsCtrl.fanConfig.thresholdOn"></ion-range-slider>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">Off Threshold - Celsius</label>
+                        </div>
+                    </div>
+                    <ionslider on-finish='settingsCtrl.updateThresholdOff' min="0" max="settingsCtrl.fanConfig.thresholdOn" from="settingsCtrl.fanConfig.thresholdOff"></ionslider>
+                    <!--<ion-range-slider min="0" to="settingsCtrl.fanConfig.thresholdOn" max="settingsCtrl.fanConfig.thresholdOn" from="settingsCtrl.fanConfig.thresholdOff"></ion-range-slider>-->
+                </div>
+            </div>
+            <div class="row" style="padding-top:10px;">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Interval - Seconds</label>
+                        </div>
+                    </div>
+                    <ionslider on-finish='settingsCtrl.updateInterval' min="0" max="100" from="settingsCtrl.fanConfig.interval"></ionslider>
+                    <!--<ion-range-slider min="0" max="60" from="settingsCtrl.fanConfig.interval"></ion-range-slider>-->
+                </div>
+            </div>
+            <div class="row" style="padding-top:20px;">
+                <div class="col-md-12">
+                    <div class="legend">
+                        <i class="fa fa-circle info-bubble-first"></i> F: {{settingsCtrl.cpu.fahrenheit}}&deg;
+                        &nbsp;
+                        <i class="fa fa-circle info-bubble-second"></i> C: {{settingsCtrl.cpu.celsius}}&deg;
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="settingsCtrl.setFanConfig()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">Button Configuration</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="radio"><input type="radio" id="radioClassic" name="radioClassic" ng-model="settingsCtrl.buttonOption" value="1" /><label for="radioClassic">Classic NES</label></div>
+                    <div style='width:100%; overflow-x:scroll; -webkit-overflow-scrolling:touch;'>
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th style="white-space: nowrap;">&nbsp;</th>
+                        <th>PI Off</th>
+                        <th>PI On - Game / Es Running</th>
+                        <th>PI On - Simulated Off</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td style="white-space: nowrap;">Power Button</td>
+                        <td style="min-width: 150px">Press to Turn on PI (If NFC Tag found Boot to Game else Boot to ES)</td>
+                        <td style="min-width: 150px">Press to Exit Game / ES</td>
+                        <td style="min-width: 150px">Press to Load Game / ES; PI Shuts Down if idle for 30 seconds</td>
+                        </tr>
+                        <tr>
+                        <td style="white-space: nowrap;">Reset Button</td>
+                        <td style="min-width: 150px">NA</td>
+                        <td style="min-width: 150px">Press to Reset Game; Hold 3 seconds to Write Game to NFC Tag </td>
+                        <td style="min-width: 150px">NA</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="radio"><input type="radio" id="radioPi" name="radioPi" ng-model="settingsCtrl.buttonOption" value="2" /><label for="radioPi">PI NES</label></div>
+                    <div style='width:100%; overflow-x:scroll; -webkit-overflow-scrolling:touch;'>
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th style="white-space: nowrap;">&nbsp;</th>
+                        <th>PI Off</th>
+                        <th>PI On - Game Running</th>
+                        <th>PI On - ES Running</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td style="white-space: nowrap;">Power Button</td>
+                        <td style="min-width: 150px">Press to Turn on PI (If NFC Tag found Boot to Game else Boot to ES)</td>
+                        <td style="min-width: 150px">Press to Turn off PI</td>
+                        <td style="min-width: 150px">Press to Turn off PI</td>
+                        </tr>
+                        <tr>
+                        <td style="white-space: nowrap;">Reset Button</td>
+                        <td style="min-width: 150px">NA</td>
+                        <td style="min-width: 150px">Press to Reset Game; Hold 3 seconds to Write Game to NFC Tag </td>
+                        <td style="min-width: 150px">Press to Start Game from NFC Tag or last Game played</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="settingsCtrl.setButtonConfig()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">Updates</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Current Version:</label>
+                        <div class="col-sm-12">
+                            <div class="app-brand"><span class="highlight">Pi</span> Control - v{{settingsCtrl.version.number}}</div>
+                            <div>{{settingsCtrl.version.date}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="settingsCtrl.checkUpdate()">Check for Updates</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

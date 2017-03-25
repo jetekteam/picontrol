@@ -1,0 +1,50 @@
+﻿<div class="col-md-12">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">Console</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <li class="dropdown" style="list-style:none;">
+                        <a href="./#/games" class="dropdown-toggle" data-toggle="dropdown">
+                            {{gamesCtrl.selectedConsole.fullName}}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./#/games"  ng-repeat="console in gamesCtrl.consoles" ng-click="gamesCtrl.setSelectedConsole(console)">{{console.fullName}}</a></li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="col-md-2 text-right" style="font-size:25px; padding:0px; margin:0px;">
+                    <i class="fa fa-plus-circle" data-toggle="tooltip" title="Add Game(s)" style="cursor:pointer; color:rgba(128,128,128,.4);" ng-click="gamesCtrl.addGames()"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div style='width:100%; overflow-x:scroll; -webkit-overflow-scrolling:touch;'>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <th ng-repeat="item in gamesCtrl.grid.header">{{item}}</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="row in gamesCtrl.grid.rows">
+                            <td style="padding:0px;">
+                                <table>
+                                    <tr>
+                                        <td><i class="fa fa-play-circle-o" data-toggle="tooltip" title="Play: {{row.name}}" style='cursor:pointer; font-size:25px; color:rgba(128,128,128,.4);' ng-click="gamesCtrl.runGame(row)"></i></td>
+                                        <td style="padding-left:25px;"><i class="fa fa-tag" data-toggle="tooltip" title="Write game to NFC Tag" style='cursor:pointer; font-size:25px; color:rgba(128,128,128,.4);' ng-click="gamesCtrl.writeNfc(row)"></i></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="min-width: 150px">{{row.name}}</td>
+                            <td>{{row.playCount}}</td>
+                            <td style="min-width: 150px"><span style='cursor:pointer' data-toggle="tooltip" title="{{row.description}}">{{row.description.substr(0,30) + '...'}}</span></td>
+                            <td><i class="fa fa-minus-circle" data-toggle="tooltip" title="Delete: {{row.name}}" style='cursor:pointer; font-size:25px; color:rgba(128,128,128,.4)' ng-click="gamesCtrl.deleteGame(row)"></i></td>                            
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

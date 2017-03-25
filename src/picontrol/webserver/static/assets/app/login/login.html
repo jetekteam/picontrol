@@ -1,0 +1,51 @@
+<div class="app app-default">
+  <div class="app-container app-login">
+    <div class="flex-center">
+      <div class="app-header"></div>
+      <div class="app-body">
+        <div class="loader-container text-center">
+            <div class="icon">
+              <div class="sk-folding-cube">
+                  <div class="sk-cube1 sk-cube"></div>
+                  <div class="sk-cube2 sk-cube"></div>
+                  <div class="sk-cube4 sk-cube"></div>
+                  <div class="sk-cube3 sk-cube"></div>
+                </div>
+              </div>
+            <div class="title">Logging in...</div>
+        </div>
+        <div class="app-block">
+        <div class="app-form">
+          <div class="form-header">
+            <div class="app-brand"><span class="highlight">Pi</span> Control</div>
+          </div>
+          <form>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">
+                  <i class="fa fa-user" aria-hidden="true"></i></span>
+                <input type="username" class="form-control" placeholder="Username" ng-model="loginCtrl.loginData.userName" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon2">
+                  <i class="fa fa-key" aria-hidden="true"></i></span>
+                <input type="password" class="form-control" placeholder="Password" ng-model="loginCtrl.loginData.password" aria-describedby="basic-addon2">
+              </div>
+              <div class="text-center">
+                  <input type="submit" class="btn btn-{{loginCtrl.button}} btn-submit" value="Login" ng-click="loginCtrl.login()">
+                  <!--<input type="submit" ng-show="loginCtrl.theme == 'green' || loginCtrl.theme == 'default'" class="btn btn-success btn-submit" value="Login" ng-click="loginCtrl.login()">
+                  <input type="submit" ng-show="loginCtrl.theme == 'yellow'" class="btn btn-warning btn-submit" value="Login" ng-click="loginCtrl.login()">
+                  <input type="submit" ng-show="loginCtrl.theme == 'red'" class="btn btn-danger btn-submit" value="Login" ng-click="loginCtrl.login()">-->
+              </div>
+              <div class="text-center">
+                  <label class="danger">{{loginCtrl.message}}</label>
+              </div>
+              <div ng-repeat="alert in loginCtrl.alerts" class="alert alert-{{alert.type}}  alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:2px;"><span aria-hidden="true">×</span></button>
+                <span style="padding-right:10px;">{{alert.message}}</span>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

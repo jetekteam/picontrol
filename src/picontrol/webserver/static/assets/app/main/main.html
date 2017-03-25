@@ -1,0 +1,153 @@
+<div class="app app-default">
+    <aside class="app-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a class="sidebar-brand" href="#">Pi &nbsp;<span class="highlight">Control</span></a>
+            <button type="button" class="sidebar-toggle">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="sidebar-nav">
+                <li class="{{mainCtrl.getPageName() == 'DASHBOARD' ? 'active' : ''}}">
+                    <a href="./#/dashboard">
+                        <div class="icon">
+                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Dashboard</div>
+                    </a>
+                </li>
+                <li class="{{mainCtrl.getPageName() == 'GAMES' ? 'active' : ''}}">
+                    <a href="./#/games">
+                        <div class="icon">
+                            <i class="fa fa-gamepad" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Games</div>
+                    </a>
+                </li>
+                <li class="{{mainCtrl.getPageName() == 'NFC' ? 'active' : ''}}">
+                    <a href="./#/nfc">
+                        <div class="icon">
+                            <i class="fa fa-tags" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">NFC</div>
+                    </a>
+                </li>
+                <li class="{{mainCtrl.getPageName() == 'SETTINGS' ? 'active' : ''}}">
+                    <a href="./#/settings">
+                        <div class="icon">
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Settings</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-footer">
+            <ul class="menu">
+                <li><a href="./#/{{mainCtrl.getPageName().toLowerCase()}}"><span class="fa fa-refresh" title="Restart" ng-click="mainCtrl.rebootPi()"></span></a></li>
+                <li><a href="./#/{{mainCtrl.getPageName().toLowerCase()}}"><span class="fa fa-plug" title="Shutdown" ng-click="mainCtrl.shutdownPi()"></span></a></li>
+            </ul>
+        </div>
+    </aside>
+    <script type="text/ng-template" id="sidebar-dropdown.tpl.html">
+        <div class="dropdown-background">
+            <div class="bg"></div>
+        </div>
+        <div class="dropdown-container">
+            {{list}}
+            <ul>
+                <li>test</li>
+            </ul>
+        </div>
+    </script>
+    <div class="app-container">
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse in">
+                    <ul class="nav navbar-nav navbar-mobile">
+                        <li>
+                            <button type="button" class="sidebar-toggle">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </li>
+                        <li class="logo">
+                            <a class="navbar-brand" href="./#/{{mainCtrl.getPageName().toLowerCase()}}">Pi &nbsp;<span class="highlight">Control</span></a>
+                        </li>
+                        <li>
+                            <button type="button" class="navbar-toggle">
+                                <div style="opacity: .4; border-radius: 50%; width:40px; height:40px; padding-top:5px; background: rgba(128, 128, 128,.25);"><i class="fa fa-user" style="font-size:20px;"></i></div>
+                            </button>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="navbar-title">{{pageName}}</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown profile">
+                            <a href="./#/{{mainCtrl.getPageName().toLowerCase()}}" class="icon dropdown-toggle" data-toggle="dropdown">
+                                <div style="opacity: .4; border-radius: 50%; width:60px; height:60px; text-align:center; padding-top:13px; background: rgba(128, 128, 128,.25);"><i class="fa fa-user" style="font-size:30px;"></i></div>
+                                <div class="title">Profile</div>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="profile-info">
+                                    <h4 class="username">Pi Control Admin</h4>
+                                </div>
+                                <ul class="action">
+                                    <li>
+                                        <a href="./#/profile">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./#/login" ng-click="mainCtrl.logout()">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid" ui-view="app"></div>
+        <footer class="app-footer" style="position:absolute; bottom:0px;">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-copyright">
+                        Pi Control - v{{mainCtrl.version.number}}
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div ng-show="appCtrl.showLoader.length > 0" style="position:absolute; top:0px; left:0xp; z-index:1000000; width:100%; height:100%; background:rgba(10,10,10,.4);">
+    <div style="margin-top:25%;">
+        <div class="icon">
+            <div class="sk-wave">
+                <div class="sk-rect sk-rect1"></div>
+                <div class="sk-rect sk-rect2"></div>
+                <div class="sk-rect sk-rect3"></div>
+                <div class="sk-rect sk-rect4"></div>
+                <div class="sk-rect sk-rect5"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".sidebar-toggle").bind("click", function (e) {
+        $("#sidebar").toggleClass("active");
+        $(".app-container").toggleClass("__sidebar");
+    });
+
+    $(".sidebar-nav").bind("click", function (e) {
+        $("#sidebar").toggleClass("active");
+        $(".app-container").toggleClass("__sidebar");
+    });
+
+    $(".navbar-toggle").bind("click", function (e) {
+        $("#navbar").toggleClass("active");
+        $(".app-container").toggleClass("__navbar");
+    });
+</script>

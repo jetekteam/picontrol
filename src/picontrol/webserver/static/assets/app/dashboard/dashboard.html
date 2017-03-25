@@ -1,0 +1,42 @@
+﻿<div class="col-md-6">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">CPU Usage</div>
+        </div>
+        <div class="card-body">
+            <div id="chartCpuUsage" class="ct-chart"></div>
+            <div class="card-footer">
+                <div class="legend">
+                    <i class="fa fa-circle info-bubble-first"></i> CPU: {{dashboardCtrl.cpu.cpuUsage + '%'}}
+                    &nbsp;
+                    <i class="fa fa-circle info-bubble-second"></i> MEM: {{dashboardCtrl.cpu.memUsage + '%'}}
+                </div>
+                <hr>
+                <div class="stats">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">CPU Temperature</div>
+        </div>
+        <div class="card-body">
+            <div id="chartCpuTemp" class="ct-chart"></div>
+            <div class="card-footer">
+                <div class="legend">
+                    <i class="fa fa-circle info-bubble-first"></i> F: {{dashboardCtrl.cpu.fahrenheit}}&deg;
+                    &nbsp;
+                    <i class="fa fa-circle info-bubble-second"></i> C: {{dashboardCtrl.cpu.celsius}}&deg;
+                </div>
+                <hr>
+                <div class="stats">
+                    System Fan: {{dashboardCtrl.cpu.fan}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
