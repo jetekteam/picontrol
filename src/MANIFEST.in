@@ -1,0 +1,3 @@
+recursive-include picontrol/webserver/templates *
+recursive-include picontrol/webserver/static *
+include README.md
