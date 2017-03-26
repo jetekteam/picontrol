@@ -8,10 +8,10 @@ class Config():
     @staticmethod
     def loadConfig():
         config = ConfigParser.RawConfigParser()
-        config.read([os.join(path, 'config.conf') for path in CONFIG_PATHS])
+        config.read([os.path.join(path, 'config.conf') for path in CONFIG_PATHS])
         return config
 
     @staticmethod
     def saveConfig(config):
-        with open(os.join(CONFIG_PATHS[0], 'config.conf'), 'w') as configFile:
+        with open(os.path.join(CONFIG_PATHS[0], 'config.conf'), 'w') as configFile:
             config.write(configFile)

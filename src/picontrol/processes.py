@@ -72,7 +72,7 @@ def process_id(proc_name):
 def runGame(console, game, source):
     try:
         # update status
-        f = open('/home/pi/scripts/picontrol/configs/status.conf', 'rw+')
+        f = open('~/.picontrol/status.conf', 'rw+')
         f.seek(0)
         f.truncate()
         f.seek(0)

@@ -10,14 +10,15 @@ GPIO.setup(gpioFan, GPIO.OUT)
 
 fan_on = False
 
+CONFIG_PATHS = ["~/.picontrol", "~/scripts/picontrol/configs"]
+
 def getCPUtemp():
     res = os.popen('vcgencmd measure_temp').readline()
     return (res.replace("temp=","").replace("'C\n",""))
 
 def getConfig():
     config = ConfigParser.RawConfigParser()
-    configFilePath = r'/home/pi/scripts/picontrol/configs/config.conf'
-    config.read(configFilePath)
+    config.read([os.path.join(path, 'config.conf') for path in CONFIG_PATHS])
     return config
 
 while True:
@@ -27,18 +28,18 @@ while True:
     interval_value = 30
 
     try:
-        thresholdOn = int(config.get("fan", "thresholdOn"))    
-        thresholdOff = int(config.get("fan", "thresholdOff"))    
-        interval = float(config.get("fan", "interval")) 
+        thresholdOn = int(config.get("fan", "thresholdOn"))
+        thresholdOff = int(config.get("fan", "thresholdOff"))
+        interval = float(config.get("fan", "interval"))
     except:
-	    print 'unable to access config file'
+         print 'unable to access config file'
 
     temp = int(float(getCPUtemp()))
     if temp >= thresholdOn:
         GPIO.output(gpioFan,1)
-        fan_on = True      
+        fan_on = True
     else:
-	    if (fan_on == True & temp <= thresholdOff - 5):
-		    GPIO.output(gpioFan,0)
+        if (fan_on == True & temp <= thresholdOff - 5):
+            GPIO.output(gpioFan,0)
 
     time.sleep(float(interval))

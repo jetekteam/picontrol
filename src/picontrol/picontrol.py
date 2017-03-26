@@ -4,10 +4,11 @@ import RPi.GPIO as GPIO
 from picontrol import processes as procs
 from picontrol import nfc
 
+CONFIG_PATHS = ["~/.picontrol", "~/scripts/picontrol/configs"]
+
 def getConfig():
     config = ConfigParser.RawConfigParser()
-    configFilePath = r'/home/pi/scripts/picontrol/configs/config.conf'
-    config.read(configFilePath)
+    config.read([os.path.join(path, 'config.conf') for path in CONFIG_PATHS])
     return config
 
 #start fan
