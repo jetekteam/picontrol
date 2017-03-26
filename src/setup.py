@@ -126,6 +126,8 @@ def main():
             "picontrol/button_classic.py",
             "picontrol/button_pi.py",
             "picontrol/fan.py",
+            "picontrol/gameend.py",
+            "picontrol/gamestart.py",
             "picontrol/picontrol.py",
             "picontrol/webserver/picontrol_web.py",
         ],
