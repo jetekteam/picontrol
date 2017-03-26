@@ -122,6 +122,13 @@ def main():
         },
         data_files           = get_data_files(),
         entry_points={},
+        scripts=[
+            "picontrol/button_classic.py",
+            "picontrol/button_pi.py",
+            "picontrol/fan.py",
+            "picontrol/picontrol.py",
+            "picontrol/webserver/picontrol_web.py",
+        ],
         include_package_data= True,
     )
 
