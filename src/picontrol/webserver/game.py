@@ -1,12 +1,7 @@
-#!/usr/bin/python 
-#game.py
-
 import sys, os, json
 from xml.dom import minidom
 
-sys.path.append('/home/pi/scripts/picontrol')
-
-import picontrol_processes as procs
+from picontrol import processes as procs
 
 class Game():
     @staticmethod

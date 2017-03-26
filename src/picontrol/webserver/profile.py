@@ -1,7 +1,4 @@
-#!/usr/bin/python 
-#profile.py
-
-from config import Config
+from picontrol.webserver.config import Config
 
 class Profile():
     @staticmethod

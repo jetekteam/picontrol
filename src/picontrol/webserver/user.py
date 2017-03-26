@@ -1,6 +1,3 @@
-#!/usr/bin/python 
-#user.py
-
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
 
 class User():

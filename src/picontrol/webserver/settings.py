@@ -1,8 +1,5 @@
-#!/usr/bin/python 
-#settings.py
-
 import sys, os
-from config import Config
+from picontrol.webserver.config import Config
 
 updateDir = '/home/pi/scripts/picontrol_update'
 baseDir = '/home/pi/scripts/picontrol'

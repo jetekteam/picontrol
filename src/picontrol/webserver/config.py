@@ -1,6 +1,3 @@
-#!/usr/bin/python 
-#config.py
-
 import sys, ConfigParser
 
 basePath = '/home/pi/scripts/picontrol/configs'

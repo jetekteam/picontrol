@@ -1,11 +1,6 @@
-#!/usr/bin/python 
-#nfc.py
-
 import sys, os, json
-import picontrol_nfc as nfc
-import picontrol_ndef as ndef
-
-sys.path.append('/home/pi/scripts/picontrol')
+from picontrol import nfc
+from picontrol import ndef
 
 class NFC():
     @staticmethod

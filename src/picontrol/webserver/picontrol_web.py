@@ -1,16 +1,16 @@
 #!/usr/bin/python 
-#app.py
+
 import os, psutil, json, logging
 from flask import Flask, render_template, jsonify, request, session, redirect
 from flask_httpauth import HTTPBasicAuth
 from flask_api import status
 
-from user import User
-from config import Config
-from game import Game
-from settings import Settings
-from nfc import NFC
-from profile import Profile
+from picontrol.webserver.user import User
+from picontrol.webserver.config import Config
+from picontrol.webserver.game import Game
+from picontrol.webserver.settings import Settings
+from picontrol.webserver.nfc import NFC
+from picontrol.webserver.profile import Profile
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
