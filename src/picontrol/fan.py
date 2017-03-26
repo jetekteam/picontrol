@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import os, time, ConfigParser
+import picontrol.config
 
 gpioFan = 18
 
@@ -10,19 +11,12 @@ GPIO.setup(gpioFan, GPIO.OUT)
 
 fan_on = False
 
-CONFIG_PATHS = ["~/.picontrol", "~/scripts/picontrol/configs"]
-
 def getCPUtemp():
     res = os.popen('vcgencmd measure_temp').readline()
     return (res.replace("temp=","").replace("'C\n",""))
 
-def getConfig():
-    config = ConfigParser.RawConfigParser()
-    config.read([os.path.join(path, 'config.conf') for path in CONFIG_PATHS])
-    return config
-
 while True:
-    config = getConfig()
+    config = picontrol.config.load_config()
     thresholdOn = 60
     thresholdOff = 55
     interval_value = 30

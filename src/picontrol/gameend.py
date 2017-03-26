@@ -1,11 +1,10 @@
 import subprocess
 from picontrol import processes as procs
 
-f = open('/home/pi/scripts/picontrol/configs/status.conf', 'rw+')
-line = f.readline()
-if line != 'reset':
-    #if procs.process_exists("emulationstation") == False:
-    subprocess.call('emulationstation', shell=True)
-f.seek(0)
-f.truncate()
-f.close()
+with open(procs.PROCS_PATH, '+') as fin:
+    line = fin.readline()
+    if line != 'reset':
+        #if procs.process_exists("emulationstation") == False:
+        subprocess.call('emulationstation', shell=True)
+    fin.seek(0)
+    fin.truncate()

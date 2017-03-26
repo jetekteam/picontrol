@@ -1,21 +1,19 @@
 import sys, os
 import re
-from picontrol.webserver.config import Config
+import picontrol.config
 import packaging.version
 
-updateDir = '/home/pi/scripts/picontrol_update'
-baseDir = '/home/pi/scripts/picontrol'
 
 class Settings():
     @staticmethod
     def setFanSettings(fanSettings):
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             config.set("fan", "thresholdOn", fanSettings['thresholdOn'])
             config.set("fan", "thresholdOff", fanSettings['thresholdOff'])
             config.set("fan", "interval", fanSettings['interval'])
 
-            Config.saveConfig(config)
+            picontrol.config.save_config(config)
             return True
         except:
             return False
@@ -23,7 +21,7 @@ class Settings():
     @staticmethod
     def getFanSettings():
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             thresholdOn = int(config.get("fan", "thresholdOn"))
             thresholdOff = int(config.get("fan", "thresholdOff"))
             interval = int(config.get("fan", "interval"))
@@ -35,10 +33,10 @@ class Settings():
     @staticmethod
     def setButtonSettings(option):
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             config.set("button", "option", option["option"])
 
-            Config.saveConfig(config)
+            picontrol.config.save_config(config)
             return True
         except:
             return False
@@ -46,7 +44,7 @@ class Settings():
     @staticmethod
     def getButtonSettings():
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             option = int(config.get("button", "option"))
 
             return {"option":option}

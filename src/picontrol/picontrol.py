@@ -3,13 +3,8 @@ import sys, os, time, json, subprocess, ConfigParser
 import RPi.GPIO as GPIO
 from picontrol import processes as procs
 from picontrol import nfc
+import picontrol.config
 
-CONFIG_PATHS = ["~/.picontrol", "~/scripts/picontrol/configs"]
-
-def getConfig():
-    config = ConfigParser.RawConfigParser()
-    config.read([os.path.join(path, 'config.conf') for path in CONFIG_PATHS])
-    return config
 
 #start fan
 os.system('pkill -9 -f fan.py')
@@ -23,7 +18,7 @@ subprocess.Popen('picontrol_web.py&', shell=True)
 #get button option and start the process
 os.system('pkill -9 -f button_pi.py')
 os.system('pkill -9 -f button_classic.py')
-config = getConfig()
+config = picontrol.config.load_config()
 buttonOption = int(config.get("button", "option"))
 
 if buttonOption == 1:

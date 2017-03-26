@@ -8,7 +8,7 @@ def killTasks(procnames):
                 pid = str(proc.as_dict(attrs=['pid'])['pid'])
                 name = proc.as_dict(attrs=['name'])['name']
                 subprocess.call(["sudo", "kill", "-15", pid])
-    
+
         kodiproc = ["kodi", "kodi.bin"]  # kodi needs SIGKILL -9 to close
         for proc in psutil.process_iter():
             if proc.name() in kodiproc:
@@ -30,7 +30,7 @@ def getGamePath(console, game):
     game = game.replace("(", "\(")
     game = game.replace(")", "\)")
     game = game.replace("'", "\\'")
- 
+
     gamePath = "/home/pi/RetroPie/roms/" + console + "/" + game
     return gamePath
 
@@ -68,16 +68,13 @@ def process_id(proc_name):
     except:
         return 0
 
+PROCS_PATH = '/tmp/picontrol.procs'
 ## runGame
 def runGame(console, game, source):
     try:
         # update status
-        f = open('~/.picontrol/status.conf', 'rw+')
-        f.seek(0)
-        f.truncate()
-        f.seek(0)
-        f.write(source)
-        f.close()
+        with open(PROCS_PATH, 'w') as fout:
+            fout.write(source)
 
         emulationstationRunning = process_exists('emulationstation')
 
@@ -100,7 +97,7 @@ def runGame(console, game, source):
             except:
                 pass
             os._exit(0)
-        else:        
+        else:
             response = {'type':'success','data':'','message':'Successfully started game.'}
             return response
     except:

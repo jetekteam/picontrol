@@ -1,14 +1,14 @@
-from picontrol.webserver.config import Config
+import picontrol.config
 
 class Profile():
     @staticmethod
     def setUser(user):
         try:
-            config = Config.loadConfig()
-            config.set("user", "username", user['username'])   
+            config = picontrol.config.load_config()
+            config.set("user", "username", user['username'])
             config.set("user", "password", user['password'])
 
-            Config.saveConfig(config)
+            picontrol.config.save_config(config)
             return True
         except:
             return False
@@ -16,9 +16,9 @@ class Profile():
     @staticmethod
     def getUser():
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             username = config.get("user", "username")
-            password = config.get("user", "password")   
+            password = config.get("user", "password")
 
             return {"username":username, "password":password}
         except:
@@ -27,10 +27,10 @@ class Profile():
     @staticmethod
     def setTheme(theme):
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             config.set("user", "theme", theme["theme"])
-            
-            Config.saveConfig(config)
+
+            picontrol.config.save_config(config)
             return True
         except:
             return False
@@ -38,11 +38,9 @@ class Profile():
     @staticmethod
     def getTheme():
         try:
-            config = Config.loadConfig()
+            config = picontrol.config.load_config()
             theme = config.get("user", "theme")
 
             return {"theme":theme}
         except:
             return {"theme":'green'}
-
-            

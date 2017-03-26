@@ -5,8 +5,8 @@ from flask import Flask, render_template, jsonify, request, session, redirect
 from flask_httpauth import HTTPBasicAuth
 from flask_api import status
 
+import picontrol.config
 from picontrol.webserver.user import User
-from picontrol.webserver.config import Config
 from picontrol.webserver.game import Game
 from picontrol.webserver.settings import Settings
 from picontrol.webserver.nfc import NFC
@@ -30,7 +30,7 @@ def verify_password(token, password):
         session['username'] = sessionUser.username
         return True
     # authenticate with username/password
-    config = Config.loadConfig()        
+    config = picontrol.config.load_config()
     appUsername = config.get("user","username")
     appPassword = config.get("user","password")
     if token == appUsername and password == appPassword:
@@ -87,8 +87,8 @@ def getPiInfo():
     fan = 'Off'
 
     try:
-        fanConfig = Config.loadConfig()
-        thresholdOff = float(fanConfig.get("fan", "thresholdOff")) 
+        fanConfig = picontrol.config.load_config()
+        thresholdOff = float(fanConfig.get("fan", "thresholdOff"))
     except:
         pass
 
