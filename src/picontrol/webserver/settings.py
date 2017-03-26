@@ -1,5 +1,7 @@
 import sys, os
+import re
 from picontrol.webserver.config import Config
+import packaging.version
 
 updateDir = '/home/pi/scripts/picontrol_update'
 baseDir = '/home/pi/scripts/picontrol'
@@ -9,7 +11,7 @@ class Settings():
     def setFanSettings(fanSettings):
         try:
             config = Config.loadConfig()
-            config.set("fan", "thresholdOn", fanSettings['thresholdOn'])   
+            config.set("fan", "thresholdOn", fanSettings['thresholdOn'])
             config.set("fan", "thresholdOff", fanSettings['thresholdOff'])
             config.set("fan", "interval", fanSettings['interval'])
 
@@ -22,9 +24,9 @@ class Settings():
     def getFanSettings():
         try:
             config = Config.loadConfig()
-            thresholdOn = int(config.get("fan", "thresholdOn"))  
-            thresholdOff = int(config.get("fan", "thresholdOff"))  
-            interval = int(config.get("fan", "interval"))             
+            thresholdOn = int(config.get("fan", "thresholdOn"))
+            thresholdOff = int(config.get("fan", "thresholdOff"))
+            interval = int(config.get("fan", "interval"))
 
             return {"thresholdOn":thresholdOn, "thresholdOff":thresholdOff, "interval":interval}
         except:
@@ -35,7 +37,7 @@ class Settings():
         try:
             config = Config.loadConfig()
             config.set("button", "option", option["option"])
-            
+
             Config.saveConfig(config)
             return True
         except:
@@ -53,75 +55,38 @@ class Settings():
 
     @staticmethod
     def getVersion():
+        version_re = r"^Version: (?P<version>\d+\.\d+\.\d+).*?$"
         try:
-            config = Config.loadVersion()
-           
-            number = config.get("version", "number")
-            date = config.get("version", "date")
-
-            return {'number':number, 'date':date}
-        except:
+            result = subprocess.check_output('pip show picontrol')
+            match = re.match(version_re, result, re.MULTILINE)
+            version = match.group('version')
+            return {'number':version, 'date':''}
+        except subprocess.CalledProcessError, AttributeError:
             return {'number':'1.0', 'date':''}
 
     @staticmethod
     def getUpdateVersion():
+        version_re = r"^picontrol (?P<version>\d+\.\d+\.\d+) .*?$"
         try:
-            config = Config.loadUpdateVersion()
-           
-            number = config.get("version", "number")
-            date = config.get("version", "date")
-
-            return {'number':number, 'date':date}
-        except:
+            result = subprocess.check_output('pip search picontrol')
+            match = re.match(version_re, result, re.MULTILINE)
+            version = match.group('version')
+            return {'number':version, 'date':''}
+        except subprocess.CalledProcessError, AttributeError:
             return {'number':'1.0', 'date':''}
 
     @staticmethod
     def checkUpdates():
-        response = {"update":False}
-        try:            
-            currentVersion = Settings.getVersion()
-            
-            os.system('mkdir ' + updateDir)
-            os.system('wget --no-check-certificate --content-disposition https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz')
-            os.system('tar -xzf picontrol.tgz picontrol')
-            os.system('mv ./picontrol ' + updateDir + '/picontrol')
-
-            updateVersion = Settings.getUpdateVersion()
-
-            if currentVersion['number'] != updateVersion['number']:
-                response =  {"update":True}
-
-            os.system("sudo rm -R " + updateDir)            
-            os.system("sudo rm -R picontrol picontrol.tgz") 
-        except:
-            os.system("sudo rm -R " + updateDir) 
-            os.system("sudo rm -R picontrol picontrol.tgz") 
-            response = {"update":False}
-        
-        return response
+        current_version = packaging.version.parse(Settings.getVersion()['number'])
+        update_version = packaging.version.parse(Settings.getUpdateVersion()['number'])
+        if current_version < update_version:
+            return {"update":True}
+        return {"update":False}
 
     @staticmethod
     def updateVersion():
-        response = {"update":False}
-        try:                        
-            os.system('mkdir ' + updateDir)
-            os.system('wget --no-check-certificate --content-disposition https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz')
-            os.system('tar -xzf picontrol.tgz picontrol')
-            os.system('mv ./picontrol ' + updateDir + '/picontrol')
-            os.system('cp ' + baseDir + '/configs/config.conf ' + updateDir + '/picontrol/configs/config.conf')
-            print('copied config')
-            os.system('sudo rm -R ' + baseDir)
-            print('deleted base')
-            os.system('cp -R ' + updateDir + '/picontrol ' + baseDir)
-            print('copied update')
-
-            os.system("sudo rm -R " + updateDir)            
-            os.system("sudo rm -R picontrol picontrol.tgz")
-            response = {"update":Settings.getVersion()["number"]}
-        except:
-            print('error')
-            os.system("sudo rm -R " + updateDir) 
-            os.system("sudo rm -R picontrol picontrol.tgz") 
-            response = {"update":False}
-        
-        return response
+        try:
+            result = subprocess.check_output('pip install -U picontrol')
+            return {"update":Settings.getVersion()["number"]}
+        except subprocess.CalledProcessError:
+            return {"update":False}
