@@ -75,6 +75,7 @@ def runGame(console, game, source):
         # update status
         with open(PROCS_PATH, 'w') as fout:
             fout.write(source)
+        os.chmod(PROCS_PATH, 438)
 
         emulationstationRunning = process_exists('emulationstation')
 
