@@ -1,5 +1,4 @@
 import sys, os, time, json, subprocess, ConfigParser
-import pdb; pdb.set_trace()
 import RPi.GPIO as GPIO
 from picontrol import processes as procs
 from picontrol import nfc

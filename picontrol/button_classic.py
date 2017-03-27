@@ -145,7 +145,7 @@ def main():
 
 
                         if gameData['console'] != '':
-                            procs.runGame(gameData['console'], gameData['rom'], 'reset'
+                            procs.runGame(gameData['console'], gameData['rom'], 'reset')
 
         except:
             pass
