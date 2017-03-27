@@ -22,11 +22,6 @@ def _get_output_or_none(args):
 def _get_git_description():
     return _get_output_or_none(['git', 'describe'])
 
-def _get_git_branches_for_this_commit():
-    branches = _get_output_or_none(['git', 'branch', '-r', '--contains', 'HEAD'])
-    split = branches.split('\n') if branches else []
-    return [branch.strip() for branch in split]
-
 def _git_to_version(git):
     match = re.match(r'(?P<tag>[\d\.]+)-(?P<offset>[\d]+)-(?P<sha>\w{8})', git)
     if not match:
@@ -37,7 +32,6 @@ def _git_to_version(git):
 
 def _get_version_from_git():
     git_description = _get_git_description()
-    git_branches = _get_git_branches_for_this_commit()
     version = _git_to_version(git_description) if git_description else None
     return version
 
@@ -68,6 +62,7 @@ def main():
             "flask-api==0.6.9",
             "flask-httpauth==3.2.2",
             "flask==0.12",
+            "packaging==16.8",
             "psutil==5.2.1",
         ],
         extras_require      = { },
