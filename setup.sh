@@ -1,5 +1,11 @@
 #!/bin/bash
 # RetroPi Control Install
+
+if [[ $EUID > 0 ]]; then # we can compare directly with this syntax.
+  echo "Please run as root/sudo"
+  exit 1
+fi
+
 #start install
 echo "**************************************"
 echo "Installing Pi Control"
@@ -18,12 +24,14 @@ then
     apt-get update
     apt-get install -y python-dev python-pip git
     pip install picontrol
+
     #copy files
     echo "Enabling Serial Interface............."
     #echo 'enable_uart=1' >> /boot/config.txt
     sed -i '\:enable_uart=0:d' /boot/config.txt 
     sed -i '\:enable_uart=1:d' /boot/config.txt
     echo 'enable_uart=1' >> /boot/config.txt
+
     #update startup
     echo "Updating Startup Commands............."
     sed -i '\:emulationstation #auto:d' /opt/retropie/configs/all/autostart.sh
@@ -38,6 +46,7 @@ then
     rm -R /opt/retropie/configs/all/runcommand-onstart.sh
     echo 'pic_gamestart&' > /opt/retropie/configs/all/runcommand-onstart.sh
     chmod -R 7777 /opt/retropie/configs/all/runcommand-onstart.sh
+
     echo "Installation Complete................."
     echo -n "You must reboot for changes to take effect, reboot now? (y/n): "
     read REPLY
