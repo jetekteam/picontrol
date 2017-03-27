@@ -4,6 +4,8 @@ python:
 install:
 - pip install pip -U
 - pip install src/.
+script:
+- echo "Future tests will go here"
 deploy:
   provider: pypi
   user: lemmons
