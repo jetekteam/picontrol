@@ -54,24 +54,24 @@ class Settings():
 
     @staticmethod
     def getVersion():
-        version_re = r"^Version: (?P<version>\d+\.\d+\.\d+).*?$"
+        version_re = r"^ +INSTALLED: +(?P<version>\d+\.\d+(\.\d+)?).*?$"
         try:
-            result = subprocess.check_output('pip show picontrol', shell=True)
-            match = re.match(version_re, result, re.MULTILINE)
+            result = subprocess.check_output('pip search picontrol', shell=True)
+            match = re.search(version_re, result, re.MULTILINE)
             version = match.group('version')
             return {'number':version, 'date':''}
-        except subprocess.CalledProcessError, AttributeError:
+        except (subprocess.CalledProcessError, AttributeError):
             return {'number':'1.0', 'date':''}
 
     @staticmethod
     def getUpdateVersion():
-        version_re = r"^picontrol (?P<version>\d+\.\d+\.\d+) .*?$"
+        version_re = r"^ +LATEST: +(?P<version>\d+\.\d+(\.\d+)?).*?$"
         try:
             result = subprocess.check_output('pip search picontrol', shell=True)
-            match = re.match(version_re, result, re.MULTILINE)
+            match = re.search(version_re, result, re.MULTILINE)
             version = match.group('version')
             return {'number':version, 'date':''}
-        except subprocess.CalledProcessError, AttributeError:
+        except (subprocess.CalledProcessError, AttributeError):
             return {'number':'1.0', 'date':''}
 
     @staticmethod
