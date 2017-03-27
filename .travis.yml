@@ -3,7 +3,7 @@ python:
 - '2.7'
 install:
 - pip install pip -U
-- pip install src/.
+- pip install .
 script:
 - echo "Future tests will go here"
 deploy:
