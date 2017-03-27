@@ -54,20 +54,9 @@ class Settings():
 
     @staticmethod
     def getVersion():
-        version_re = r"^ +INSTALLED: +(?P<version>\d+\.\d+(\.\d+)?).*?$"
+        version_re = r"^Version: (?P<version>\d+\.\d+(\.\d+)?).*?$"
         try:
-            result = subprocess.check_output('pip search picontrol', shell=True)
-            match = re.search(version_re, result, re.MULTILINE)
-            version = match.group('version')
-            return {'number':version, 'date':''}
-        except (subprocess.CalledProcessError, AttributeError):
-            return {'number':'1.0', 'date':''}
-
-    @staticmethod
-    def getUpdateVersion():
-        version_re = r"^ +LATEST: +(?P<version>\d+\.\d+(\.\d+)?).*?$"
-        try:
-            result = subprocess.check_output('pip search picontrol', shell=True)
+            result = subprocess.check_output('pip show picontrol', shell=True)
             match = re.search(version_re, result, re.MULTILINE)
             version = match.group('version')
             return {'number':version, 'date':''}
@@ -76,9 +65,8 @@ class Settings():
 
     @staticmethod
     def checkUpdates():
-        current_version = packaging.version.parse(Settings.getVersion()['number'])
-        update_version = packaging.version.parse(Settings.getUpdateVersion()['number'])
-        if current_version < update_version:
+        exitcode = subprocess.call('pip list -o --format=columns| grep picontrol', shell=True)
+        if exitcode == 0:
             return {"update":True}
         return {"update":False}
 

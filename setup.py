@@ -96,6 +96,7 @@ def main():
             "flask==0.12",
             "packaging==16.8",
             "psutil==5.2.1",
+            "pip>=9.0.1",
         ],
         extras_require      = { },
         packages            = [

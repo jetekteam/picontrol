@@ -31,7 +31,7 @@ def load_config():
 
 def save_config(config):
     try:
-        os.makedirs(os.path.split(CONFIG_PATHS[0]))
+        os.makedirs(os.path.split(CONFIG_PATHS[0])[0])
     except OSError as e:
         if not "File exists" in str(e):
             raise
