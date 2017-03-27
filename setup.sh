@@ -27,14 +27,14 @@ then
     echo "Updating Startup Commands............."
     sed -i '\:emulationstation #auto:d' /opt/retropie/configs/all/autostart.sh
     sed -i '\:emulationstation:d' /opt/retropie/configs/all/autostart.sh
-    sed -i '\:picontrol.py&:d' /opt/retropie/configs/all/autostart.sh
-    echo 'picontrol.py&' >> /opt/retropie/configs/all/autostart.sh
+    sed -i '\:picontrol&:d' /opt/retropie/configs/all/autostart.sh
+    echo 'picontrol&' >> /opt/retropie/configs/all/autostart.sh
     echo 'emulationstation' >> /opt/retropie/configs/all/autostart.sh
     rm -R /opt/retropie/configs/all/runcommand-onend.sh
-    echo 'gameend.py&' > /opt/retropie/configs/all/runcommand-onend.sh
+    echo 'pic_gameend&' > /opt/retropie/configs/all/runcommand-onend.sh
     chmod -R 7777 /opt/retropie/configs/all/runcommand-onend.sh
     rm -R /opt/retropie/configs/all/runcommand-onstart.sh
-    echo 'gamestart.py&' > /opt/retropie/configs/all/runcommand-onstart.sh
+    echo 'pic_gamestart&' > /opt/retropie/configs/all/runcommand-onstart.sh
     chmod -R 7777 /opt/retropie/configs/all/runcommand-onstart.sh
     echo "Installation Complete................."
     echo -n "You must reboot for changes to take effect, reboot now? (y/n): "

@@ -1,5 +1,3 @@
-#!/usr/bin/python 
-
 import os, psutil, json, logging
 from flask import Flask, render_template, jsonify, request, session, redirect
 from flask_httpauth import HTTPBasicAuth
@@ -198,6 +196,9 @@ def readNFC():
 def writeNFC():
     return jsonify(NFC.writeNFC(request.data))
 
+def main():
+    app.run(debug=False, threaded=True, host='0.0.0.0', port=8080)
+
 ## init app
 if __name__ == '__main__':
-    app.run(debug=False, threaded=True, host='0.0.0.0', port=8080)
+    main()
