@@ -56,7 +56,7 @@ class Settings():
     def getVersion():
         version_re = r"^Version: (?P<version>\d+\.\d+\.\d+).*?$"
         try:
-            result = subprocess.check_output('pip show picontrol')
+            result = subprocess.check_output('pip show picontrol', shell=True)
             match = re.match(version_re, result, re.MULTILINE)
             version = match.group('version')
             return {'number':version, 'date':''}
@@ -67,7 +67,7 @@ class Settings():
     def getUpdateVersion():
         version_re = r"^picontrol (?P<version>\d+\.\d+\.\d+) .*?$"
         try:
-            result = subprocess.check_output('pip search picontrol')
+            result = subprocess.check_output('pip search picontrol', shell=True)
             match = re.match(version_re, result, re.MULTILINE)
             version = match.group('version')
             return {'number':version, 'date':''}
@@ -85,7 +85,7 @@ class Settings():
     @staticmethod
     def updateVersion():
         try:
-            result = subprocess.check_output('pip install -U picontrol')
+            subprocess.check_output('pip install -U picontrol', shell=True)
             return {"update":Settings.getVersion()["number"]}
         except subprocess.CalledProcessError:
             return {"update":False}
