@@ -15,6 +15,7 @@ if [ $REPLY = "y" ] || [ $REPLY = "Y" ]
 then
     echo "**************************************"
     echo "Installing Webserver and Scripts"
+    apt-get update
     apt-get install -y python-dev python-pip git
     pip install picontrol
     #copy files
@@ -27,6 +28,7 @@ then
     echo "Updating Startup Commands............."
     sed -i '\:emulationstation #auto:d' /opt/retropie/configs/all/autostart.sh
     sed -i '\:emulationstation:d' /opt/retropie/configs/all/autostart.sh
+    sed -i '\:python /home/pi/scripts/picontrol/picontrol.py&:d' /opt/retropie/configs/all/autostart.sh
     sed -i '\:pic_control&:d' /opt/retropie/configs/all/autostart.sh
     echo 'pic_control&' >> /opt/retropie/configs/all/autostart.sh
     echo 'emulationstation' >> /opt/retropie/configs/all/autostart.sh
@@ -41,7 +43,7 @@ then
     read REPLY
     if [ $REPLY = "y" ] || [ $REPLY = "Y" ]
     then
-        sudo reboot
+        reboot
     fi
 fi
 #end

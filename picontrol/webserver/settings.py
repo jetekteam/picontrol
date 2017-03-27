@@ -73,7 +73,7 @@ class Settings():
     @staticmethod
     def updateVersion():
         try:
-            subprocess.check_output('pip install -U picontrol', shell=True)
+            subprocess.check_output('sudo pip install -U picontrol', shell=True)
             return {"update":Settings.getVersion()["number"]}
         except subprocess.CalledProcessError:
             return {"update":False}
