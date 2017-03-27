@@ -60,16 +60,15 @@ def main():
         url                 = "https://github.com/Lemmons/picontrol",
         long_description    = "A RaspberryPi/RetroPi controller/webserver for game, nfc, and power control",
         author              = "Scott Lemmon",
+        author_email        = "skot.biz@gmail.com",
         install_requires    = [
-            "Adafruit_PN532",
+            "Adafruit-PN532==1.2.1",
+            "Adafruit-GPIO==1.0.1",
             "RPi.GPIO==0.6.3",
             "flask-api==0.6.9",
             "flask-httpauth==3.2.2",
             "flask==0.12",
             "psutil==5.2.1",
-        ],
-        dependency_links=[
-            "git+https://github.com/adafruit/Adafruit_Python_PN532.git",
         ],
         extras_require      = { },
         packages            = [
@@ -83,13 +82,13 @@ def main():
         data_files           = get_data_files(),
         entry_points={
             'console_scripts': [
-                'picontrol          = picontrol.picontrol:main',
+                'pic_control        = picontrol.control:main',
                 'pic_button_classic = picontrol.button_classic:main',
                 'pic_button_pi      = picontrol.button_pi:main',
                 'pic_fan            = picontrol.fan:main',
                 'pic_gameend        = picontrol.gameend:main',
                 'pic_gamestart      = picontrol.gamestart:main',
-                'pic_web            = picontrol.webserver.picontrol_web:main',
+                'pic_web            = picontrol.webserver.server:main',
             ]
         },
         include_package_data= True,

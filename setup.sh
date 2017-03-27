@@ -27,8 +27,8 @@ then
     echo "Updating Startup Commands............."
     sed -i '\:emulationstation #auto:d' /opt/retropie/configs/all/autostart.sh
     sed -i '\:emulationstation:d' /opt/retropie/configs/all/autostart.sh
-    sed -i '\:picontrol&:d' /opt/retropie/configs/all/autostart.sh
-    echo 'picontrol&' >> /opt/retropie/configs/all/autostart.sh
+    sed -i '\:pic_control&:d' /opt/retropie/configs/all/autostart.sh
+    echo 'pic_control&' >> /opt/retropie/configs/all/autostart.sh
     echo 'emulationstation' >> /opt/retropie/configs/all/autostart.sh
     rm -R /opt/retropie/configs/all/runcommand-onend.sh
     echo 'pic_gameend&' > /opt/retropie/configs/all/runcommand-onend.sh
