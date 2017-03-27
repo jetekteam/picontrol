@@ -2,6 +2,7 @@ import sys, os
 import re
 import picontrol.config
 import packaging.version
+import subprocess
 
 
 class Settings():
