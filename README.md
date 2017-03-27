@@ -12,13 +12,11 @@
 4. Download and extract Pi Control archive
 
   ```bash
- wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
- tar -xzf picontrol.tgz
+ wget https://github.com/jetechteam/picontrol/raw/master/setup.sh
  ```
 5. Run installer
 
   ```bash
- cd picontrol
  sudo sh ./setup.sh
  ``` 
 6. When prompted to reboot type “y” and hit enter.
