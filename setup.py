@@ -94,7 +94,6 @@ def main():
             "flask-api==0.6.9",
             "flask-httpauth==3.2.2",
             "flask==0.12",
-            "packaging==16.8",
             "psutil==5.2.1",
             "pip>=9.0.1",
         ],
