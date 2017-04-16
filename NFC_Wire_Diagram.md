@@ -8,4 +8,4 @@
 
 NFC Reader needs to be in SPI mode.
 
-  ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc wire diagram.PNG)
+  ![alt tag](https://github.com/jetechteam/picontrol/raw/master/img/nfc_wire_diagram.PNG)
