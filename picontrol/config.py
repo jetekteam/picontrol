@@ -3,9 +3,8 @@ import os
 import StringIO
 
 CONFIG_PATHS = [
-    "/etc/picontrol/picontrol.conf",
-    "~/.picontrol/picontrol.conf",
-    "~/scripts/picontrol/configs/config.conf",
+    os.path.expanduser("~/.picontrol/picontrol.conf"),
+    os.path.expanduser("~/scripts/picontrol/configs/config.conf"),
 ]
 
 DEFAULTS = """
