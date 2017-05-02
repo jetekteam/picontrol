@@ -1,0 +1,33 @@
+﻿<div class="col-md-12">
+    <div class="card" style="margin-bottom:35px;">
+        <div class="card-header">
+            <div class="card-title">NFC Tag</div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Console</label>
+                        <input type="text" class="form-control" placeholder="Console" ng-model="nfcCtrl.nfcTag.console">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Rom</label>
+                        <input type="text" class="form-control" placeholder="Rom" ng-model="nfcCtrl.nfcTag.rom">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+                <div class="col-md-12 text-right">
+                    <button class="btn" ng-click="nfcCtrl.clear()">Clear</button>
+                    <button class="btn" ng-click="nfcCtrl.readTag()">Read</button>
+                    <button class="btn" ng-click="nfcCtrl.writeTag()">Write</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

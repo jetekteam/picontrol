@@ -1,0 +1,18 @@
+language: python
+python:
+- '2.7'
+install:
+- pip install pip -U
+- pip install .
+script:
+- echo "Future tests will go here"
+deploy:
+  provider: pypi
+  user: lemmons
+  password:
+    secure: hhS5Dlcr9QmeLpiyPRqJVXEWfQo8+IhN2i3qisGucf+6J4aj2zCR+Z/DEYDfa6vooen74ZlE1quBs9bHJSrijvhYfqjheFtYF4C8XEsrFwc93O1yFTryXmb7ZTKC8+QwL3oaIRMv7GuhKQbIJXJKTw2ujFTGzYkFozh/WBmti1k8ZQVqFS8tOPhvalP4HIPRazJlFE7aVmJw3py1IMVO2BtEEadJ+stjxGuIVN50F/l/If8ijm9H0OHAzUVyB2S26+SykalJlm5GuxXe0mLYi2NjLSVLjNlfLxZNYhm2kE2L0MogHlojELJpW6uracYfCUNk3iTT7pHsCQ+jFv3r0GVQ1S1ktCOJcIzftRb0cp84SUWM0123IXbjzDdU+QSbmf1WxlBJGPD0gOuyLsw+S3yYLxdyQvDrt8Y1CA8OP5v/2tXfYeDjM8BmjOeni/3uZr08IH5gD9z/+9A1VmfLUX6Mr7R9bR4UpyjZUwdavAFexO/UV5F8g2XB9hEli7CFip5RNhoLhHXnevW1v6e61FHlfOrAXozuiVZi5U/B83xlmiKvPrat6h33od2LwRg0Qb7+dbS6IASCFzklydUYtSem8Al8Z4HqYEvB9qj3rMj4KYDcXY5IXrx8GfuPEgUvTSUTfv1Llr0quA64/DVhsh8uX0ppXpDIPpS8cotQJpk=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    # branch: master
+    repo: Lemmons/picontrol

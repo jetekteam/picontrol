@@ -1,0 +1,35 @@
+﻿<div id="nfcModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Game(s)</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span style="font-size:18px;">Console</span>
+                        <li class="dropdown" style="list-style:none;">
+                            <a href="./#/games" class="dropdown-toggle" data-toggle="dropdown">
+                                {{addGameCtrl.selectedConsole.fullName}}
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./#/games"  ng-repeat="console in addGameCtrl.consoles" ng-click="addGameCtrl.setSelectedConsole(console)">{{console.fullName}}</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px;">
+                    <div class="col-md-12">
+                        <input style="font-size:12px;" type="file" ng-file-model="addGameCtrl.files" multiple accept="{{addGameCtrl.selectedConsole.extensions.split(' ').join(', ')}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="addGameCtrl.upload()">Upload</button>
+                <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
