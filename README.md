@@ -12,6 +12,7 @@
 4. Download and extract Pi Control archive
 
   ```bash
+ sudo apt-get update
  wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
  tar -xzf picontrol.tgz
  ```
