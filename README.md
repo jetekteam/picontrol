@@ -27,3 +27,5 @@
   * Example: 192.168.1.25
   * Default Username: picontrol
   * Default Password: password
+
+(The NFC reader has set of switches that must be configured for SPI communication)
