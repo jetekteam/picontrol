@@ -12,6 +12,7 @@
 4. Download and extract Pi Control archive
 
   ```bash
+ sudo apt-get update
  wget https://github.com/jetechteam/picontrol/raw/master/picontrol.tgz
  tar -xzf picontrol.tgz
  ```
@@ -26,3 +27,5 @@
   * Example: 192.168.1.25
   * Default Username: picontrol
   * Default Password: password
+
+(The NFC reader has set of switches that must be configured for SPI communication)
